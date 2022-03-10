@@ -1,0 +1,22 @@
+.loginpage {
+    display: flex;
+    margin: 2rem;
+    .container {
+        width: 40%;
+        div.button {
+            display: flex;
+            flex-direction: column;
+            button {
+                margin: 1rem 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .loginpage {
+        .container {
+            width: 80%;
+        }
+    }
+}

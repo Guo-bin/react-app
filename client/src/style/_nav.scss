@@ -1,0 +1,144 @@
+.nav {
+    background-color: rgb(244, 247, 239);
+    position: relative;
+    .nav-container-large {
+        display: flex;
+        padding: 1.5rem 0;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+
+        .logo {
+            width: 20%;
+            a {
+                font-size: 2rem;
+            }
+        }
+        .search {
+            width: 40%;
+            border: 1px solid #ccc;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            input {
+                padding-left: 0.5rem;
+                width: 90%;
+                border: none;
+                outline: none;
+                background-color: transparent;
+            }
+            button {
+                background-color: transparent;
+                width: 10%;
+                border: none;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .nav-list {
+            width: 40%;
+            display: flex;
+            padding-left: 10%;
+            justify-content: space-between;
+            align-items: center;
+            a {
+                display: inline-block;
+                // width: 1000px;
+            }
+        }
+    }
+    .nav-container-small {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .nav {
+        // height: 10vh;
+        .nav-container-large {
+            display: none;
+        }
+        .nav-container-small {
+            display: block;
+            width: 100%;
+            .showSearch {
+                padding: 1.5rem 1rem;
+                font-size: 1.3rem;
+                display: flex;
+                justify-content: center;
+                button.arrow-left {
+                    margin-right: 1rem;
+                    background-color: rgb(242, 248, 231);
+                    border: none;
+                }
+                div.search-bar {
+                    background-color: #fff;
+                    border-radius: 1rem;
+                    overflow: hidden;
+                    input {
+                        width: 80%;
+                        border: none;
+                        outline: none;
+                        padding-left: 1rem;
+                        height: 100%;
+                    }
+                    button {
+                        width: 20%;
+                        height: 100%;
+                        background-color: white;
+                        border: none;
+                        padding-right: 1rem;
+                    }
+                }
+            }
+            .closeSearch {
+                display: flex;
+                width: 100%;
+                padding: 1rem 0.5rem;
+                align-items: center;
+                .icon {
+                    font-size: 1.3rem;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                .hamburger {
+                    width: 30%;
+                }
+                .logo {
+                    width: 40%;
+                    text-align: center;
+
+                    h2 {
+                        margin-bottom: 0;
+                    }
+                }
+                .nav-list {
+                    width: 30%;
+                    text-align: center;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    a.shoppingCart {
+                        position: relative;
+                        div {
+                            position: absolute;
+                            width: 1rem;
+                            height: 1rem;
+                            text-align: center;
+                            line-height: 1rem;
+                            border-radius: 50%;
+                            background-color: rgb(79, 199, 199);
+                            font-size: 0.8rem;
+                            top: -5%;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

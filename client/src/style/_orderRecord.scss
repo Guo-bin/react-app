@@ -1,0 +1,75 @@
+div.orderRecordPage {
+    .loadingIMG {
+        width: 100%;
+        height: 70vh;
+        line-height: 70vh;
+        text-align: center;
+    }
+    div.container {
+        max-width: 90%;
+
+        table {
+            width: 100%;
+
+            tr {
+                th {
+                    padding: 0.3rem;
+                    font-size: 1.5rem;
+
+                    text-align: center;
+                }
+                td {
+                    padding: 0.3rem;
+                    text-align: center;
+                    font-size: 1.2rem;
+
+                    max-width: 10vw;
+                    overflow: hidden;
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        color: blue;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    div.orderRecordPage {
+        div.container {
+            max-width: 90%;
+
+            table {
+                width: 100%;
+
+                // display: block;
+                // overflow-x: auto;
+                // white-space: nowrap;
+
+                tr {
+                    // display: flex;
+
+                    th {
+                        padding: 0.3rem;
+
+                        font-size: 1rem;
+                        text-align: center;
+                    }
+                    td {
+                        padding: 0.3rem;
+                        text-align: center;
+                        font-size: 1rem;
+
+                        max-width: 10vw;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+}

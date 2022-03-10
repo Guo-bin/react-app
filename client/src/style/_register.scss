@@ -1,0 +1,21 @@
+div.register {
+    display: flex;
+    margin: 2rem;
+    div.container {
+        width: 40%;
+        div.button {
+            display: flex;
+            flex-direction: column;
+            button {
+                margin: 1rem 0;
+            }
+        }
+    }
+}
+@media (max-width: 800px) {
+    div.register {
+        div.container {
+            width: 80%;
+        }
+    }
+}

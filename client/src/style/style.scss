@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans TC", sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+// html,
+// body {
+//     height: 100vh;
+//     overflow-y: auto;
+// }
+
+@import "./nav";
+@import "./sideMenu";
+@import "./homepage";
+@import "./product";
+@import "./productDetail";
+@import "./loginpage";
+@import "./shoppingCart";
+@import "./orderRecord";
+@import "./orderDetail";
+@import "./register";

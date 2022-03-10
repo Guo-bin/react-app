@@ -1,0 +1,675 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav {
+  background-color: #f4f7ef;
+  position: relative;
+}
+
+.nav .nav-container-large {
+  display: flex;
+  padding: 1.5rem 0;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.nav .nav-container-large .logo {
+  width: 20%;
+}
+
+.nav .nav-container-large .logo a {
+  font-size: 2rem;
+}
+
+.nav .nav-container-large .search {
+  width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.nav .nav-container-large .search input {
+  padding-left: 0.5rem;
+  width: 90%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.nav .nav-container-large .search button {
+  background-color: transparent;
+  width: 10%;
+  border: none;
+}
+
+.nav .nav-container-large .search button:hover {
+  cursor: pointer;
+}
+
+.nav .nav-container-large .nav-list {
+  width: 40%;
+  display: flex;
+  padding-left: 10%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav .nav-container-large .nav-list a {
+  display: inline-block;
+}
+
+.nav .nav-container-small {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nav .nav-container-large {
+    display: none;
+  }
+  .nav .nav-container-small {
+    display: block;
+    width: 100%;
+  }
+  .nav .nav-container-small .showSearch {
+    padding: 1.5rem 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+  }
+  .nav .nav-container-small .showSearch button.arrow-left {
+    margin-right: 1rem;
+    background-color: #f2f8e7;
+    border: none;
+  }
+  .nav .nav-container-small .showSearch div.search-bar {
+    background-color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .nav .nav-container-small .showSearch div.search-bar input {
+    width: 80%;
+    border: none;
+    outline: none;
+    padding-left: 1rem;
+    height: 100%;
+  }
+  .nav .nav-container-small .showSearch div.search-bar button {
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    border: none;
+    padding-right: 1rem;
+  }
+  .nav .nav-container-small .closeSearch {
+    display: flex;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    align-items: center;
+  }
+  .nav .nav-container-small .closeSearch .icon {
+    font-size: 1.3rem;
+  }
+  .nav .nav-container-small .closeSearch .icon:hover {
+    cursor: pointer;
+  }
+  .nav .nav-container-small .closeSearch .hamburger {
+    width: 30%;
+  }
+  .nav .nav-container-small .closeSearch .logo {
+    width: 40%;
+    text-align: center;
+  }
+  .nav .nav-container-small .closeSearch .logo h2 {
+    margin-bottom: 0;
+  }
+  .nav .nav-container-small .closeSearch .nav-list {
+    width: 30%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .nav .nav-container-small .closeSearch .nav-list a.shoppingCart {
+    position: relative;
+  }
+  .nav .nav-container-small .closeSearch .nav-list a.shoppingCart div {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    border-radius: 50%;
+    background-color: #4fc7c7;
+    font-size: 0.8rem;
+    top: -5%;
+    right: 0;
+  }
+}
+
+.sideMenu button.close {
+  display: none;
+}
+
+.sideMenu div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sideMenu div a {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.sideMenu div a:hover {
+  background-color: #e0ecca;
+}
+
+@media (max-width: 800px) {
+  .sideMenu {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #cacfbf;
+    height: 100vh;
+    box-shadow: 1px 1px 1px 1px #a39f9f;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+    font-size: 1rem;
+  }
+  .sideMenu button.close {
+    display: block;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+.homepage {
+  width: 90%;
+  margin: 5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.homepage .left-side {
+  min-width: 15%;
+}
+
+.homepage .right-side {
+  min-width: 85%;
+}
+
+.homepage .right-side .loadingIMG {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage .right-side div.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.homepage .right-side div.container .placeholder {
+  visibility: hidden;
+  height: 0;
+  flex-grow: 1;
+  flex-basis: 200px;
+  flex-shrink: 1;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .homepage {
+    width: 100%;
+    margin: 5rem 0;
+    display: flex;
+  }
+  .homepage .left-side {
+    display: none;
+  }
+  .homepage .right-side {
+    width: 100%;
+  }
+  .homepage .right-side div.container {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+  }
+}
+
+div.product {
+  flex-grow: 1;
+  flex-basis: 200px;
+  flex-shrink: 1;
+  padding: 0 1.5rem;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+div.product .container {
+  width: 100%;
+}
+
+div.product .container img {
+  width: 100%;
+}
+
+div.product .container h4 {
+  font-size: 1.5rem;
+  color: #eb3974;
+}
+
+div.product .container p {
+  font-size: 1rem;
+}
+
+@media (max-width: 450px) {
+  div.product {
+    flex-basis: 150px;
+    padding: 0;
+  }
+  div.product .container p {
+    font-size: 1rem;
+  }
+  div.product .container h4 {
+    font-size: 1.2rem;
+  }
+  .homepage .right-side div.container .placeholder {
+    flex-basis: 150px;
+  }
+}
+
+.productDetail {
+  width: 100%;
+}
+
+.productDetail .loadingIMG {
+  width: 100%;
+  height: 70vh;
+  line-height: 70vh;
+  text-align: center;
+}
+
+.productDetail .productDetail-container {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.productDetail .productDetail-container div.image {
+  margin: 5%;
+}
+
+.productDetail .productDetail-container div.image img {
+  width: 100%;
+  min-width: 200px;
+  max-width: 500px;
+}
+
+.productDetail .productDetail-container div.detail {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.productDetail .productDetail-container div.detail ul {
+  padding-inline-start: 0px;
+}
+
+.productDetail .productDetail-container div.detail ul li {
+  padding: 0.1rem 0;
+  list-style-type: none;
+}
+
+.productDetail .productDetail-container div.detail div.button {
+  display: flex;
+}
+
+.productDetail .productDetail-container div.detail div.button a {
+  padding: 1rem;
+  background-color: #f53e3e;
+  color: white;
+  margin: 1rem;
+}
+
+.productDetail div.recommend {
+  display: flex;
+  margin: 1rem;
+  border: 1px solid #ccc;
+  flex-wrap: wrap;
+}
+
+.productDetail div.recommend .product {
+  flex-grow: 1;
+  flex-basis: 200px;
+}
+
+.productDetail div.recommend .placeholder {
+  height: 0;
+  flex-basis: 200px;
+  visibility: hidden;
+  flex-grow: 1;
+}
+
+@media (max-width: 800px) {
+  .productDetail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .productDetail-container div.image {
+    margin: auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .productDetail-container div.image img {
+    width: 100%;
+  }
+  .productDetail-container div.detail div.button {
+    justify-content: center;
+  }
+  .productDetail-container div.detail h2 {
+    font-size: 1.2rem;
+  }
+}
+
+.loginpage {
+  display: flex;
+  margin: 2rem;
+}
+
+.loginpage .container {
+  width: 40%;
+}
+
+.loginpage .container div.button {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginpage .container div.button button {
+  margin: 1rem 0;
+}
+
+@media (max-width: 800px) {
+  .loginpage .container {
+    width: 80%;
+  }
+}
+
+div.shoppingCart {
+  min-height: 130vh;
+}
+
+div.shoppingCart div.container {
+  max-width: 100%;
+}
+
+div.shoppingCart div.container table {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+div.shoppingCart div.container table tr th {
+  text-align: center;
+}
+
+div.shoppingCart div.container table tr td {
+  text-align: center;
+}
+
+div.shoppingCart div.container table tr td button {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  width: 4rem;
+}
+
+div.shoppingCart div.container table tr td button:hover {
+  color: red;
+}
+
+div.shoppingCart div.container table tr td img {
+  height: 20vh;
+}
+
+div.shoppingCart div.container h5.sum {
+  text-align: end;
+}
+
+div.shoppingCart div.container div.checkOut {
+  padding: 1rem 0;
+  text-align: end;
+}
+
+div.shoppingCart div.container div.checkOut button {
+  padding: 0.3rem;
+  background-color: transparent;
+  color: blue;
+}
+
+div.shoppingCart div.container div.checkOut button:hover {
+  color: red;
+}
+
+div.shoppingCart div h3 {
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+}
+
+@media (max-width: 800px) {
+  div.shoppingCart div.container table tr th {
+    font-size: 0.5rem;
+    min-width: 4rem;
+  }
+  div.shoppingCart div.container table tr td {
+    font-size: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  div.shoppingCart div.container table tr td img {
+    height: 10vh;
+  }
+}
+
+div.orderRecordPage .loadingIMG {
+  width: 100%;
+  height: 70vh;
+  line-height: 70vh;
+  text-align: center;
+}
+
+div.orderRecordPage div.container {
+  max-width: 90%;
+}
+
+div.orderRecordPage div.container table {
+  width: 100%;
+}
+
+div.orderRecordPage div.container table tr th {
+  padding: 0.3rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+div.orderRecordPage div.container table tr td {
+  padding: 0.3rem;
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 10vw;
+  overflow: hidden;
+}
+
+div.orderRecordPage div.container table tr td button {
+  background-color: transparent;
+  border: none;
+  color: blue;
+}
+
+div.orderRecordPage div.container table tr td button:hover {
+  color: red;
+}
+
+@media (max-width: 800px) {
+  div.orderRecordPage div.container {
+    max-width: 90%;
+  }
+  div.orderRecordPage div.container table {
+    width: 100%;
+  }
+  div.orderRecordPage div.container table tr th {
+    padding: 0.3rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  div.orderRecordPage div.container table tr td {
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 1rem;
+    max-width: 10vw;
+    overflow: hidden;
+  }
+}
+
+div.orderDetailPage .loadingIMG {
+  width: 100%;
+  height: 70vh;
+  line-height: 70vh;
+  text-align: center;
+}
+
+div.orderDetailPage h3 {
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
+div.orderDetailPage div.orderDetailPage-containers {
+  width: 90%;
+  margin: 0 auto;
+}
+
+div.orderDetailPage div.orderDetailPage-containers table {
+  width: 100%;
+}
+
+div.orderDetailPage div.orderDetailPage-containers table tr th {
+  height: 10vh;
+}
+
+div.orderDetailPage div.orderDetailPage-containers table tr td {
+  width: fit-content;
+  height: 20vh;
+}
+
+div.orderDetailPage div.orderDetailPage-containers table tr td img {
+  height: 100%;
+}
+
+div.orderDetailPage div.orderDetailPage-containers h5 {
+  text-align: end;
+}
+
+div.orderDetailPage div.orderDetailPage-containers div.order-number {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+div.orderDetailPage div.orderDetailPage-containers div.order-number h6 {
+  padding: 1rem;
+  margin-left: 2rem;
+}
+
+@media (max-width: 800px) {
+  div.orderDetailPage h3 {
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
+  }
+  div.orderDetailPage div.orderDetailPage-containers {
+    width: 90%;
+    margin: 0 auto;
+  }
+  div.orderDetailPage div.orderDetailPage-containers table {
+    width: 100%;
+  }
+  div.orderDetailPage div.orderDetailPage-containers table tr th {
+    min-width: 4rem;
+    text-align: center;
+    height: 10vh;
+    font-size: 0.5rem;
+  }
+  div.orderDetailPage div.orderDetailPage-containers table tr td {
+    text-align: center;
+    font-size: 0.5rem;
+    height: 15vh;
+  }
+  div.orderDetailPage div.orderDetailPage-containers table tr td img {
+    height: 100%;
+  }
+  div.orderDetailPage div.orderDetailPage-containers h5 {
+    text-align: end;
+  }
+  div.orderDetailPage div.orderDetailPage-containers div.order-number {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  div.orderDetailPage div.orderDetailPage-containers div.order-number h6 {
+    padding: 1rem;
+    margin-left: 2rem;
+  }
+}
+
+div.register {
+  display: flex;
+  margin: 2rem;
+}
+
+div.register div.container {
+  width: 40%;
+}
+
+div.register div.container div.button {
+  display: flex;
+  flex-direction: column;
+}
+
+div.register div.container div.button button {
+  margin: 1rem 0;
+}
+
+@media (max-width: 800px) {
+  div.register div.container {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
