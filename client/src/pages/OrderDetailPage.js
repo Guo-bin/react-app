@@ -47,10 +47,6 @@ const OrderDetailPage = () => {
                     </table>
                     <br />
                     <h5 style={{ color: "rgb(235, 57, 116)", fontSize: "1.5rem" }}>總額:{orderDetail.totalPrice}元</h5>
-                    {/* <div className="order-number">
-                        <h6>訂單編號:{orderDetail._id}</h6>
-                        <h6>訂單日期:{orderDetail.date}</h6>
-                    </div> */}
                 </div>
             )}
         </div>

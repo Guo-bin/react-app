@@ -7,13 +7,15 @@ import loadingIMG from "../Image/Spinner-1s-200px.svg";
 
 const Homepage = ({ keyWord, setKeyWord }) => {
     const dispatch = useDispatch();
+    const products = useSelector((state) => state.product.data);
+    const loading = useSelector((state) => state.product.loading);
+
     useEffect(() => {
         if (keyWord == "") {
             dispatch(fetchDataActionCreator());
         }
     }, []);
-    const products = useSelector((state) => state.product.data);
-    const loading = useSelector((state) => state.product.loading);
+
     return (
         <div className="homepage">
             <div className="left-side">

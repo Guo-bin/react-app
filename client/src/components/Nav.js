@@ -59,6 +59,7 @@ const Nav = ({ keyWord, setKeyWord }) => {
 
     return (
         <div className="nav">
+            {/* large size screen */}
             <div className="nav-container-large">
                 <div className="logo">
                     <Link onClick={logoClickHandler} to="/">
