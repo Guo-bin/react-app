@@ -14,7 +14,7 @@ import { userSlice } from "./redux/user/userSlice";
 import "./style/style.css";
 const App = () => {
     const [currentUser, setCurrentUser] = useState();
-
+    const [redirectUrl, setRedirectUrl] = useState(null);
     const [keyWord, setKeyWord] = useState("");
     const dispatch = useDispatch();
 
@@ -27,11 +27,14 @@ const App = () => {
     }, []);
     return (
         <div>
-            <Nav keyWord={keyWord} setKeyWord={setKeyWord} />
+            <Nav keyWord={keyWord} setKeyWord={setKeyWord} redirectUrl={redirectUrl} setRedirectUrl={setRedirectUrl} />
             <Routes>
                 <Route path="/" element={<Homepage keyWord={keyWord} setKeyWord={setKeyWord} />} />
                 <Route path="/product/:productID" element={<ProductDetail />} />
-                <Route path="/login" element={<Loginpage />} />
+                <Route
+                    path="/login"
+                    element={<Loginpage redirectUrl={redirectUrl} setRedirectUrl={setRedirectUrl} />}
+                />
                 <Route path="/shoppingCart" element={<ShoppingCart />} />
                 <Route path="/orderRecord" element={<OrderRecordPage />} />
                 <Route path="/orderDetail/:_id" element={<OrderDetailPage />} />

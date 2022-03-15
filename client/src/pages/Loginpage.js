@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchUserData } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const Loginpage = () => {
+const Loginpage = ({ redirectUrl, setRedirectUrl }) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -21,13 +21,21 @@ const Loginpage = () => {
     const loginHandler = () => {
         dispatch(fetchUserData({ email, password }));
     };
-    const signinHandler = () => {
+    const loginKeyPressHandler = (e) => {
+        if (e.key === "Enter") {
+            dispatch(fetchUserData({ email, password }));
+        }
+    };
+    const registHandler = () => {
         navigate("/register");
     };
     //to prevent someone who has already signed in ,but still get into this page from url
     //if login, it will redirect to homepage
     useEffect(() => {
-        if (currentUser) {
+        if (currentUser && redirectUrl) {
+            navigate(redirectUrl);
+        }
+        if (currentUser && !redirectUrl) {
             navigate("/");
         }
     }, [currentUser]);
@@ -37,6 +45,7 @@ const Loginpage = () => {
                 <h1 style={{ textAlign: "center" }}>會員登入</h1>
                 <div class="mb-3">
                     <input
+                        onKeyPress={loginKeyPressHandler}
                         onChange={emailChangeHandler}
                         placeholder="請輸入電子信箱"
                         type="email"
@@ -48,6 +57,7 @@ const Loginpage = () => {
                 </div>
                 <div class="mb-3">
                     <input
+                        onKeyPress={loginKeyPressHandler}
                         onChange={passwordChangeHandler}
                         placeholder="請輸入密碼"
                         type="password"
@@ -64,7 +74,7 @@ const Loginpage = () => {
                     <button onClick={loginHandler} type="submit" class="btn btn-primary">
                         登入
                     </button>
-                    <button type="submit" class="btn btn-success" onClick={signinHandler}>
+                    <button type="submit" class="btn btn-success" onClick={registHandler}>
                         註冊
                     </button>
                 </div>

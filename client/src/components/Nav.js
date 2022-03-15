@@ -6,7 +6,7 @@ import SideMenu from "./SideMenu";
 import { clearShoppingCartActionCreator } from "../redux/shoppingCart/shoppingCartActionCreator";
 import { fetchDataActionCreator, searchProductActionCreator } from "../redux/product/productReducerActionCreator";
 import { userSlice } from "../redux/user/userSlice";
-const Nav = ({ keyWord, setKeyWord }) => {
+const Nav = ({ keyWord, setKeyWord, redirectUrl, setRedirectUrl }) => {
     const [showSearch, setShowSearch] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -36,6 +36,10 @@ const Nav = ({ keyWord, setKeyWord }) => {
             searchHandler();
         }
     };
+    //login
+    const loginHandler = () => {
+        setRedirectUrl(null);
+    };
     //logout
     const logoutHandler = () => {
         setKeyWord("");
@@ -48,6 +52,7 @@ const Nav = ({ keyWord, setKeyWord }) => {
     //if login then direct to shoppingCartPage otherwise go to loginPage
     const shoppingCartHandler = (e) => {
         if (!currentUser) {
+            setRedirectUrl("/shoppingCart");
             navigate("/login");
         } else {
             navigate("/shoppingCart");
@@ -55,6 +60,7 @@ const Nav = ({ keyWord, setKeyWord }) => {
     };
     const logoClickHandler = () => {
         dispatch(fetchDataActionCreator());
+        navigate("/");
     };
 
     return (
@@ -63,7 +69,7 @@ const Nav = ({ keyWord, setKeyWord }) => {
             <div className="nav-container-large">
                 <div className="logo">
                     <Link onClick={logoClickHandler} to="/">
-                        <i class="fas fa-tv"> 小唯唯</i>
+                        <i class="fas fa-tv"> BinShop </i>
                     </Link>
                 </div>
                 <div className="search" onKeyPress={keyHandler}>
@@ -79,7 +85,11 @@ const Nav = ({ keyWord, setKeyWord }) => {
                         購物車{shoppingCart && <>({shoppingCart.length})件</>}
                     </Link>
 
-                    {!currentUser && <Link to="/login">註冊/登入</Link>}
+                    {!currentUser && (
+                        <Link to="/login" onClick={loginHandler}>
+                            註冊/登入
+                        </Link>
+                    )}
 
                     {currentUser && <Link to="/orderRecord">訂單紀錄</Link>}
                     {currentUser && (
@@ -115,7 +125,7 @@ const Nav = ({ keyWord, setKeyWord }) => {
                         </div>
                         <div className="logo icon">
                             <Link onClick={logoClickHandler} to="/">
-                                <h2>小唯唯</h2>
+                                <h2>BinShop</h2>
                             </Link>
                         </div>
 
@@ -130,7 +140,7 @@ const Nav = ({ keyWord, setKeyWord }) => {
                             </a>
 
                             {!currentUser && (
-                                <Link to="/login">
+                                <Link to="/login" onClick={loginHandler}>
                                     <i class="fa-solid fa-user"></i>
                                 </Link>
                             )}
