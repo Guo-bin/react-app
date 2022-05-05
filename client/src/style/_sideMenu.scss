@@ -10,20 +10,20 @@
             padding: 0.5rem 1rem;
             cursor: pointer;
             &:hover {
-                background-color: rgb(224, 236, 202);
+                background-color: #cbcaca;
             }
         }
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
     .sideMenu {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
         button.close {
             display: block;
-
+            color: #fff;
             background-color: transparent;
             border: none;
             font-size: 1.5rem;
@@ -33,9 +33,9 @@
         top: 0;
         left: 0;
         padding: 1rem;
-        background-color: rgb(202, 207, 191);
+
         height: 100vh;
-        box-shadow: 1px 1px 1px 1px rgb(163, 159, 159);
+        background-color: #4e4d4d;
         transform: translateX(-100%);
         transition: all 0.3s;
         font-size: 1rem;

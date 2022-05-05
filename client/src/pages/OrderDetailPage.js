@@ -39,8 +39,8 @@ const OrderDetailPage = () => {
                                             <img src={item.img} alt="" />
                                         </td>
                                         <td className="name">{item.name}</td>
-                                        <td>1 件</td>
-                                        <td>{item.price}</td>
+                                        <td>{item.quantity}件</td>
+                                        <td>{item.price * item.quantity}</td>
                                     </tr>
                                 );
                             })}

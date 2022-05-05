@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
     console.log(totalPrice);
     const newDate = new Date();
     console.log(newDate.toLocaleString());
-    newDate2 = newDate.toLocaleString();
+    newDate2 = new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei" });
     let newOrder = new Order({ user: req.user._id, productList: products, totalPrice, date: newDate2 });
 
     try {

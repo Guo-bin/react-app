@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import checkoutService from "../service/checkout.service";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
     deleteShoppingCartItemActionCreator,
@@ -21,7 +22,7 @@ const ShoppingCart = () => {
     let sum = 0;
     if (shoppingCart) {
         for (let i = 0; i < shoppingCart.length; i++) {
-            sum = sum + Number(shoppingCart[i].price);
+            sum = sum + Number(shoppingCart[i].price) * Number(shoppingCart[i].quantity);
         }
         console.log(sum);
     }
@@ -44,7 +45,7 @@ const ShoppingCart = () => {
             .then((res) => {
                 window.alert(res.data);
                 dispatch(clearShoppingCartActionCreator());
-                // localStorage.removeItem("ShoppingCart");
+                localStorage.removeItem("shoppingCart");
                 navigate("/orderRecord");
             })
             .catch((e) => {
@@ -79,8 +80,8 @@ const ShoppingCart = () => {
                                                 <img src={item.img} alt="" />
                                             </td>
                                             <td className="name">{item.name}</td>
-                                            <td>1 件</td>
-                                            <td>{item.price}</td>
+                                            <td>{item.quantity} 件</td>
+                                            <td>{item.price * item.quantity}</td>
                                             <td id={index}>
                                                 <button onClick={deleteHandler}>刪除</button>
                                             </td>

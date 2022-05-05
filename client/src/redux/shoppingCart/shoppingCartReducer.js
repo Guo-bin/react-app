@@ -1,7 +1,7 @@
 import { ADD_TO_SHOPPINGCART, DELETE_SHIPPINGCART_ITEM, CLEAR_SHOPPINGCART } from "./shoppingCartActionCreator";
 
 const defaultState = {
-    shoppingCart: [],
+    shoppingCart: localStorage.getItem("shoppingCart") ? JSON.parse([localStorage.getItem("shoppingCart")]) : [],
 };
 
 export default (state = defaultState, action) => {

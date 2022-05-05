@@ -29,6 +29,7 @@ div.orderRecordPage {
                         background-color: transparent;
                         border: none;
                         color: blue;
+
                         &:hover {
                             color: red;
                         }
@@ -39,7 +40,7 @@ div.orderRecordPage {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
     div.orderRecordPage {
         div.container {
             max-width: 90%;

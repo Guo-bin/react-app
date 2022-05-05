@@ -10,6 +10,7 @@ const initialState = {
 export const getOrderRecord = createAsyncThunk("order/getOrderRecord", async (userID, { rejectWithValue }) => {
     try {
         let response = await orderRecordService.getOrderRecord();
+
         return response.data.reverse();
     } catch (e) {
         return rejectWithValue(e.response.data);

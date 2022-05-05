@@ -46,7 +46,7 @@ const Nav = ({ keyWord, setKeyWord, redirectUrl, setRedirectUrl }) => {
         dispatch(clearShoppingCartActionCreator());
         dispatch(userSlice.actions.userLogout());
         localStorage.removeItem("User");
-
+        localStorage.removeItem("shoppingCart");
         navigate("/");
     };
     //if login then direct to shoppingCartPage otherwise go to loginPage
@@ -60,6 +60,7 @@ const Nav = ({ keyWord, setKeyWord, redirectUrl, setRedirectUrl }) => {
     };
     const logoClickHandler = () => {
         dispatch(fetchDataActionCreator());
+
         navigate("/");
     };
 

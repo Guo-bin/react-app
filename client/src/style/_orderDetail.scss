@@ -17,16 +17,19 @@ div.orderDetailPage {
             width: 100%;
             tr {
                 th {
-                    // text-align: center;
+                    text-align: center;
                     height: 10vh;
                 }
                 td {
-                    // text-align: center;
+                    text-align: center;
                     width: fit-content;
                     height: 20vh;
                     img {
                         height: 100%;
                     }
+                }
+                td.name {
+                    text-align: start;
                 }
             }
         }
@@ -46,7 +49,7 @@ div.orderDetailPage {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
     div.orderDetailPage {
         h3 {
             padding: 1rem;
