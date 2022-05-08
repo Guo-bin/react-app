@@ -4,10 +4,10 @@ export const DELETE_SHIPPINGCART_ITEM = "delete_shoppingCart_item";
 
 export const CLEAR_SHOPPINGCART = "clear_shoppingCart";
 
-export const addToShoppingCartActionCreator = (productDetail) => {
+export const addToShoppingCartActionCreator = (shoppingCartList) => {
     return {
         type: ADD_TO_SHOPPINGCART,
-        payload: productDetail,
+        payload: shoppingCartList,
     };
 };
 

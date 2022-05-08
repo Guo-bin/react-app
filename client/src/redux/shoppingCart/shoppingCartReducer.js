@@ -6,7 +6,7 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
     if (action.type == ADD_TO_SHOPPINGCART) {
-        let newState = { shoppingCart: [...state.shoppingCart, action.payload] };
+        let newState = { shoppingCart: action.payload };
         return newState;
     }
     if (action.type == DELETE_SHIPPINGCART_ITEM) {

@@ -35,7 +35,7 @@ const ShoppingCart = () => {
         });
 
         console.log(arr);
-
+        localStorage.setItem("shoppingCart", JSON.stringify(arr));
         dispatch(deleteShoppingCartItemActionCreator(arr));
     };
     //checkout

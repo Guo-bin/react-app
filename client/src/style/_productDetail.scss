@@ -84,6 +84,7 @@
                     height: 2px;
                     background-color: #212121;
                     transform: translate(-50%, -50%);
+                    z-index: -10;
                 }
                 .number-input button.plus:after {
                     transform: translate(-50%, -50%) rotate(90deg);

@@ -18,6 +18,8 @@
 
 @media (max-width: 1050px) {
     .sideMenu {
+        position: relative;
+        z-index: 100;
         display: block;
         overflow-x: auto;
         white-space: nowrap;

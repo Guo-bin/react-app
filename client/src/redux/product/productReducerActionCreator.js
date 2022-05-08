@@ -32,7 +32,7 @@ export const fetchDataActionCreator = () => async (dispatch, getState) => {
     dispatch(fetchProductStartActionCreator());
     try {
         const products = await productService.getProduct();
-        console.log("HAHA", products.data);
+
         dispatch(fetchProductSuccessActionCreator(products.data));
     } catch (e) {
         dispatch(fetchProductFailActionCreator(e));

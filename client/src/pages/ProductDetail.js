@@ -12,30 +12,33 @@ const ProductDetail = () => {
     const shoppingCart = useSelector((state) => state.shoppingCart.shoppingCart);
 
     //add item to shoppingCart
-    console.log(shoppingCart);
+
     const shoppingCartHandler = () => {
         window.alert("已加入購物車");
         const quantity = document.querySelector(".quantity");
-        console.log(quantity.value);
-        let productinfo = { ...productDetail, quantity: quantity.value };
 
-        if (shoppingCart.length !== 0) {
-            console.log(productinfo);
-            shoppingCart.forEach((product) => {
+        let productinfo = { ...productDetail, quantity: quantity.value };
+        let same = false;
+        let previousShoppingCartList = JSON.parse(localStorage.getItem("shoppingCart"));
+
+        if (previousShoppingCartList == null || previousShoppingCartList.length == 0) {
+            localStorage.setItem("shoppingCart", JSON.stringify([productinfo]));
+        } else if (previousShoppingCartList.length !== 0) {
+            previousShoppingCartList.forEach((product) => {
+                //if there is a same item in the shoppingCart
                 if (product._id == productinfo._id) {
                     product.quantity = Number(product.quantity) + Number(productinfo.quantity);
-                    console.log(product.quantity);
+                    localStorage.setItem("shoppingCart", JSON.stringify([...previousShoppingCartList]));
+                    same = true;
                 }
             });
-            localStorage.setItem("shoppingCart", JSON.stringify([...shoppingCart]));
-        } else {
-            console.log(productinfo);
-            localStorage.setItem("shoppingCart", JSON.stringify([productinfo]));
-            console.log(JSON.parse(localStorage.getItem("shoppingCart")));
+            //if there isn't a smae item in the shoppingCart
+            if (!same) {
+                localStorage.setItem("shoppingCart", JSON.stringify([...previousShoppingCartList, productinfo]));
+            }
         }
-
-        // console.log(productDetail);
-        dispatch(addToShoppingCartActionCreator(productinfo));
+        let newshoppingCartList = JSON.parse(localStorage.getItem("shoppingCart"));
+        dispatch(addToShoppingCartActionCreator(newshoppingCartList));
     };
     const stepDown = (e) => {
         const input = document.querySelector(".quantity");

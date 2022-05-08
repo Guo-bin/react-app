@@ -195,6 +195,8 @@ a {
 
 @media (max-width: 1050px) {
   .sideMenu {
+    position: relative;
+    z-index: 100;
     display: block;
     overflow-x: auto;
     white-space: nowrap;
@@ -408,6 +410,7 @@ div.product .container p {
   height: 2px;
   background-color: #212121;
   transform: translate(-50%, -50%);
+  z-index: -10;
 }
 
 .productDetail .productDetail-container div.detail div.button .number-input button.plus:after {
